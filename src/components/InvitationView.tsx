@@ -162,7 +162,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                 <div className="absolute top-0 bottom-0 w-1 rounded-full shadow-lg left-8 md:left-1/2 bg-gradient-to-b from-indigo-400 via-purple-400 via-fuchsia-400 via-pink-400 to-amber-400" />
 
                 {/* Timeline Events */}
-                <div className="space-y-12">
+                <div className="space-y-4">
                   {timelineEvents.map((event, index) => {
                     const colors = [
                       { from: 'from-indigo-500', to: 'to-purple-500', bg: 'from-indigo-100 to-purple-100', text: 'text-indigo-700', hover: 'group-hover:text-indigo-600' },
