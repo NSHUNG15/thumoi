@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.6;
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes cloud-float {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(25vw) translateY(-10px) scale(1.05);
+  }
+  50% {
+    transform: translateX(50vw) translateY(5px) scale(1);
+  }
+  75% {
+    transform: translateX(75vw) translateY(-5px) scale(1.03);
+  }
+  100% {
+    transform: translateX(120vw) translateY(0) scale(1);
+  }
+}
+
+.cloud-float {
+  animation: cloud-float 20s linear infinite;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .invitation-card {
+    box-shadow: none;
+    transform: none !important;
+  }
+}
