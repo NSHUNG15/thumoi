@@ -84,9 +84,9 @@ export function InvitationView({ invitation }: InvitationViewProps) {
           <div className="grid gap-6 p-8 md:p-12 md:grid-cols-2">
             
             {/* Photo Section */}
-            <div className="relative col-span-1 mb-12">
+            <div className="relative col-span-1 lg:mb-12">
               <div className="absolute inset-0 transform scale-95 rounded-2xl blur-xl opacity-30 bg-gradient-to-br from-indigo-400 via-purple-400 to-pink-400"></div>
-              <div className="relative flex items-center justify-center h-[40rem] overflow-hidden rounded-2xl group bg-gradient-to-br from-slate-100 to-slate-200">
+              <div className="relative flex items-center justify-center lg:h-[40rem] overflow-hidden rounded-2xl group ">
                 <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 group-hover:opacity-100"></div>
               <div className="z-10 text-center">
                   <img
