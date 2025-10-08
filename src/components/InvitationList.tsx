@@ -146,20 +146,20 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="mx-auto space-y-4">
       <h2 className="mb-6 text-2xl font-bold text-white">Danh Sách Thư Mời ({invitations.length})</h2>
 
-      <div className="grid gap-6 space-y-3 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 space-y-3 lg:grid-cols-3">
         {invitations.map((invitation) => (
           <div
             key={invitation.id}
-            className="p-5 transition-all border bg-white/10 backdrop-blur-lg rounded-2xl border-white/20 hover:bg-white/15"
+            className="flex p-2 transition-all border bg-white/10 backdrop-blur-lg rounded-2xl border-white/20 hover:bg-white/15"
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col items-center justify-between w-full gap-4 lg:flex-row">
               {/* Name Section */}
               <div className="flex-1 min-w-0">
                 {editingId === invitation.id ? (
-                  <div className="space-y-2">
+                  <div className="space-y-2 ">
                     <div className="flex items-center gap-2">
                       <input
                         type="text"

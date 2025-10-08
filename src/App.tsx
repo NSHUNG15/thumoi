@@ -198,7 +198,7 @@ function App() {
         {showList ? (
           /* Invitation List View */
           <div className="mx-auto max-w-[100%]">
-            <div className="p-8 border shadow-2xl bg-white/10 backdrop-blur-lg rounded-3xl border-white/20">
+            <div className="p-2 border shadow-2xl bg-white/10 backdrop-blur-lg rounded-3xl border-white/20 lg:p-8">
               <InvitationList onRefresh={() => {}} />
               <button
                 onClick={handleBackToCreate}
