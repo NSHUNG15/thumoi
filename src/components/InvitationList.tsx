@@ -214,7 +214,7 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
                   </div>
                 ) : (
                   <div>
-                    <h3 className="text-xl font-bold text-white truncate">
+                    <h3 className="text-xl font-bold text-white truncate w-[20rem] md:w-full">
                       {invitation.recipient_name}
                     </h3>
                     {invitation.relation && (
