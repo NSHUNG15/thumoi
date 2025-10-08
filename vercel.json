@@ -10,14 +10,13 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "static": {
-    "vite.svg": {
-      "cacheControl": "public, max-age=0, must-revalidate"
-    }
-  },
-  "routes": [
+ "routes": [
     {
       "src": "/vite.svg",
+      "headers": {
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      },
       "dest": "/vite.svg"
     },
     {
