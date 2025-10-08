@@ -149,7 +149,7 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
     <div className="space-y-4">
       <h2 className="mb-6 text-2xl font-bold text-white">Danh Sách Thư Mời ({invitations.length})</h2>
 
-      <div className="space-y-3">
+      <div className="grid gap-6 space-y-3 lg:grid-cols-3">
         {invitations.map((invitation) => (
           <div
             key={invitation.id}

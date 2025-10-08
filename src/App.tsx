@@ -197,7 +197,7 @@ function App() {
       <div className="container relative z-10 px-4 py-12 mx-auto">
         {showList ? (
           /* Invitation List View */
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-[100%]">
             <div className="p-8 border shadow-2xl bg-white/10 backdrop-blur-lg rounded-3xl border-white/20">
               <InvitationList onRefresh={() => {}} />
               <button

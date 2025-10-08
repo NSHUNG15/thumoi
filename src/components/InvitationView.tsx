@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, Clock, Sparkles } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, Clock, Sparkles, Phone } from 'lucide-react';
 import { Invitation } from '../lib/supabase';
 import { normalizeDriveLink } from '../lib/drive';
 import avatar from '../images/avatar.jpg';
@@ -24,7 +24,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
       if (/\b(anh|chị)\b/.test(r)) return 'Em';
       if (/\b(bạn|bạn bè|ban be|bè|be)\b/.test(r)) return 'Tôi';
       if (r === 'em') return 'Tôi';
-      return 'Em';
+      return 'Tôi';
     })();
     const timelineEvents = [
     { time: '13:30 - 14:00', title: 'Đón tiếp khách mời', description: 'Đăng ký và nhận tài liệu' },
@@ -157,6 +157,20 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                       <p className="text-gray-700">Hội trường tầng 4</p>
                       <p className="text-gray-700">03 Quang Trung</p>
                       <p className="text-gray-700">Đà Nẵng</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative p-6 overflow-hidden transition-all duration-300 transform border border-transparent rounded-2xl hover:scale-105 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-rose-100 to-amber-100 opacity-80"></div>
+                  <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br from-pink-200 via-rose-200 to-amber-200 group-hover:opacity-100"></div>
+                  <div className="relative flex items-start space-x-4">
+                    <div className="p-3 shadow-lg rounded-xl bg-gradient-to-br from-pink-500 to-rose-600">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                    <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Liên hệ</p>
+                      <p className="text-gray-700">Nguyễn Sinh Hùng</p>
+                      <p className="text-gray-700">SĐT: 0857000163</p>
                     </div>
                   </div>
                 </div>
