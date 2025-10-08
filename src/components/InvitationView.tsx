@@ -9,14 +9,30 @@ interface InvitationViewProps {
 }
 
 export function InvitationView({ invitation }: InvitationViewProps) {
-  
+
+  const relation = (invitation.relation ?? 'Bạn') as string;
+
+    // Derive how the sender should refer to themself based on recipient relation.
+    // - Parents / family (ba, mẹ, gia đình, etc.) => 'Con' or 'Cháu'
+    // - Anh / Chị => 'Em'
+    // - Bạn / Em (friends or 'em' as a relation) => 'Tôi'
+    // Default to 'Em' to preserve previous behavior.
+    const senderPronoun = (() => {
+      const r = (relation || '').toLowerCase();
+      if (/ông|bà/.test(r)) return 'Cháu';
+      if (/\b(ba|bố|mẹ|gia ?đình|gia đình)\b/.test(r)) return 'Con';
+      if (/\b(anh|chị)\b/.test(r)) return 'Em';
+      if (/\b(bạn|bạn bè|ban be|bè|be)\b/.test(r)) return 'Tôi';
+      if (r === 'em') return 'Tôi';
+      return 'Em';
+    })();
     const timelineEvents = [
-    { time: '08:00 - 08:30', title: 'Đón tiếp khách mời', description: 'Đăng ký và nhận tài liệu' },
-    { time: '08:30 - 09:00', title: 'Nghi thức chào cờ', description: 'Hát quốc ca và chào cờ tổ quốc' },
-    { time: '09:00 - 10:30', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
-    { time: '10:30 - 11:00', title: 'Phát biểu của sinh viên', description: 'Đại diện sinh viên phát biểu cảm nghĩ' },
-    { time: '11:00 - 11:30', title: 'Chụp ảnh lưu niệm', description: 'Chụp ảnh tập thể và gia đình' },
-    // { time: '11:30 - 12:30', title: 'Tiệc mừng tốt nghiệp', description: 'Giao lưu và dùng bữa trưa' }
+    { time: '13:30 - 14:00', title: 'Đón tiếp khách mời', description: 'Đăng ký và nhận tài liệu' },
+    { time: '14:00 - 14:30', title: 'Nghi thức chào cờ', description: 'Hát quốc ca và chào cờ tổ quốc' },
+    { time: '14:30 - 16:00', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
+    { time: '16:00 - 16:30', title: 'Phát biểu của sinh viên', description: 'Đại diện sinh viên phát biểu cảm nghĩ' },
+    { time: '16:30 - 17:00', title: 'Chụp ảnh lưu niệm', description: 'Chụp ảnh tập thể và gia đình' },
+    // { time: '17:00 - 18:00', title: 'Tiệc mừng tốt nghiệp', description: 'Giao lưu và dùng bữa trưa' }
     ];
   // Convert photo_url (possibly null) into an image URL usable in <img />
   const getImageUrl = (photoUrl?: string | null) => {
@@ -102,12 +118,14 @@ export function InvitationView({ invitation }: InvitationViewProps) {
             <div className="items-center justify-center col-span-1 my-auto">
               {/* Recipient Name */}
               <div className="mb-8 text-center">
-                <p className="mb-2 text-xl text-gray-600">Kính gửi:</p>
-                <h3 className="mb-6 text-4xl font-bold text-transparent h-[45px] bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text">{invitation.recipient_name}</h3>
+                <p className="mb-2 text-xl text-gray-600">Thân gửi:</p>
+                <h3 className="mb-1 text-4xl font-bold text-transparent h-[45px] bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text">{invitation.recipient_name}</h3>
+                {relation && (
                 <p className="max-w-2xl mx-auto text-xl leading-relaxed text-gray-700">
-                  Tôi rất vui mừng được mời bạn tham dự buổi lễ tốt nghiệp trang trọng,
-                  đánh dấu cột mốc quan trọng trong hành trình học vấn của tôi.
+                  {senderPronoun} rất vui mừng được mời {relation} tham dự buổi lễ tốt nghiệp trang trọng,
+                  đánh dấu cột mốc quan trọng trong hành trình học vấn của {senderPronoun.toLowerCase()}.
                 </p>
+                )}
               </div>
 
               {/* Event Details */}
@@ -121,8 +139,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                     </div>
                     <div>
                       <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Thời gian</p>
-                      <p className="text-gray-700">08:00 - 12:00</p>
-                      <p className="text-gray-700">Ngày 17 tháng 10 năm 2025</p>
+                      <p className="text-gray-700">13:30 - 17:00</p>
+                      <p className="text-gray-700">Ngày 16 tháng 10 năm 2025</p>
                     </div>
                   </div>
                 </div>
@@ -135,7 +153,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Địa điểm</p>
+                    <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Địa điểm</p>
+                      <p className="text-gray-700">Hội trường tầng 4</p>
                       <p className="text-gray-700">03 Quang Trung</p>
                       <p className="text-gray-700">Đà Nẵng</p>
                     </div>
@@ -162,7 +181,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                 <div className="absolute top-0 bottom-0 w-1 rounded-full shadow-lg left-8 md:left-1/2 bg-gradient-to-b from-indigo-400 via-purple-400 via-fuchsia-400 via-pink-400 to-amber-400" />
 
                 {/* Timeline Events */}
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-0">
                   {timelineEvents.map((event, index) => {
                     const colors = [
                       { from: 'from-indigo-500', to: 'to-purple-500', bg: 'from-indigo-100 to-purple-100', text: 'text-indigo-700', hover: 'group-hover:text-indigo-600' },
@@ -218,9 +237,10 @@ export function InvitationView({ invitation }: InvitationViewProps) {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-pink-50 via-rose-50 to-amber-50 opacity-70"></div>
             <div className="relative">
               <p className="text-xl italic text-gray-700">
-                Sự hiện diện của bạn sẽ là niềm vinh hạnh cho tôi.
+                Sự hiện diện của Gia đình, Quý Anh, Chị, bạn bè và những người yêu thương sẽ là niềm vinh hạnh của em.<br />
+                Xin cảm ơn vì đã dành thời gian quý báu để cùng em lưu giữ những khoảnh khắc đáng nhớ.
               </p>
-              <p className="mt-2 font-bold text-transparent bg-gradient-to-r from-purple-700 via-pink-700 to-amber-700 bg-clip-text">Trân trọng kính mời!</p>
+              <p className="mt-2 font-bold text-transparent bg-gradient-to-r from-purple-700 via-pink-700 to-amber-700 bg-clip-text">Trân trọng thân mời!</p>
             </div>
           </div>
         </div>

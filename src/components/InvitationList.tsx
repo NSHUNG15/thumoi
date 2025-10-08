@@ -13,6 +13,7 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState('');
+  const [editRelation, setEditRelation] = useState<string>('');
   const [editPhotoUrl, setEditPhotoUrl] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -59,6 +60,7 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
     setEditingId(invitation.id);
     setEditName(invitation.recipient_name);
     setEditPhotoUrl(invitation.photo_url || null);
+    setEditRelation(invitation.relation || '');
   };
 
   const handleSaveEdit = async (id: string) => {
@@ -74,22 +76,28 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
         photoToSave = normalized ?? photoToSave;
       }
 
+      // Save relation too (store null if empty)
+      const relationToSave = editRelation.trim() ? editRelation.trim() : null;
+
       const { error } = await supabase
         .from('invitations')
-        .update({ recipient_name: editName, photo_url: photoToSave, updated_at: new Date().toISOString() })
+        .update({ recipient_name: editName, photo_url: photoToSave, relation: relationToSave, updated_at: new Date().toISOString() })
         .eq('id', id);
 
       if (error) throw error;
 
       setInvitations(invitations.map(inv =>
-        inv.id === id ? { ...inv, recipient_name: editName, photo_url: photoToSave } : inv
+        inv.id === id ? { ...inv, recipient_name: editName, photo_url: photoToSave, relation: relationToSave } : inv
       ));
       setEditingId(null);
       setEditPhotoUrl(null);
+      setEditRelation('');
       if (onRefresh) onRefresh();
     } catch (error) {
       console.error('Error updating invitation:', error);
-      alert('Có lỗi xảy ra khi cập nhật thư mời.');
+      // If Supabase returned an error object, show its message to help debugging (e.g., missing column)
+      const msg = (error && (error as any).message) ? (error as any).message : 'Có lỗi xảy ra khi cập nhật thư mời.';
+      alert(msg);
     }
   };
 
@@ -184,6 +192,14 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
                       placeholder="Link ảnh từ Google Drive (tùy chọn)"
                     />
 
+                    <input
+                      type="text"
+                      value={editRelation}
+                      onChange={(e) => setEditRelation(e.target.value)}
+                      className="w-full px-4 py-2 mt-2 text-white border-2 rounded-lg bg-white/20 border-white/30 placeholder-white/50 focus:outline-none focus:border-yellow-400"
+                      placeholder="Quan hệ (ví dụ: Ba mẹ, anh, chị, bạn, em) (tùy chọn)"
+                    />
+
                     {/* Live preview */}
                     <div className="flex items-center gap-4 mt-2">
                       <div className="w-20 h-20 overflow-hidden border rounded-lg bg-white/10 border-white/20">
@@ -201,6 +217,9 @@ export function InvitationList({ onRefresh }: InvitationListProps) {
                     <h3 className="text-xl font-bold text-white truncate">
                       {invitation.recipient_name}
                     </h3>
+                    {invitation.relation && (
+                      <div className="mt-1 text-sm text-yellow-200">{invitation.relation}</div>
+                    )}
                     <div className="flex items-center gap-4 mt-1 text-sm text-blue-200">
                       <span>Lượt xem: {invitation.views_count}</span>
                       <span>•</span>

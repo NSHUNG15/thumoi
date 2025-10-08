@@ -16,6 +16,8 @@ export interface Invitation {
   id: string;
   recipient_name: string;
   share_code: string;
+  // Optional relation/role of the recipient (e.g., 'Ba mẹ', 'anh', 'chị', 'bạn', 'em')
+  relation?: string | null;
   photo_url: string | null;
   created_at: string;
   updated_at: string;
