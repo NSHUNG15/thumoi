@@ -8,20 +8,19 @@
   ],
   "outputDirectory": "dist",
   "rewrites": [
+     {
+      "source": "/vite.svg",
+      "destination": "/vite.svg"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
- "routes": [
-    {
-      "src": "/vite.svg",
-      "headers": {
-        "Content-Type": "image/svg+xml",
-        "Cache-Control": "public, max-age=0, must-revalidate"
-      },
-      "dest": "/vite.svg"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "headers": [
+      {
+        "source": "/vite.svg",
+        "headers": [
+          { "key": "Content-Type", "value": "image/svg+xml" },
+          { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        ]
+      }
+    ]
 }
