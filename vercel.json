@@ -9,5 +9,20 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "static": {
+    "vite.svg": {
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  },
+  "routes": [
+    {
+      "src": "/vite.svg",
+      "dest": "/vite.svg"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
