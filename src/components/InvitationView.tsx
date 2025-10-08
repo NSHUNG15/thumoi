@@ -119,7 +119,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
               {/* Recipient Name */}
               <div className="mb-8 text-center">
                 <p className="mb-2 text-xl text-gray-600">Thân gửi:</p>
-                <h3 className="mb-1 text-4xl font-bold text-transparent h-[45px] bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text">{invitation.recipient_name}</h3>
+                <h3 className="h-auto mb-2 text-3xl font-bold text-transparent bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text">{invitation.recipient_name}</h3>
                 {relation && (
                 <p className="max-w-2xl mx-auto text-xl leading-relaxed text-gray-700">
                   {senderPronoun} rất vui mừng được mời {relation} tham dự buổi lễ tốt nghiệp trang trọng,
