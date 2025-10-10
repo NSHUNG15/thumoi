@@ -205,7 +205,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Thời gian</p>
                     <p className="text-gray-700">13:30 - 17:00</p>
-                    <p className="text-gray-700">Ngày 16 tháng 10 năm 2025</p>
+                    <p className="text-gray-700">Ngày 17 tháng 10 năm 2025</p>
                   </div>
                 </div>
               </div>
