@@ -204,8 +204,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Thời gian</p>
-                    <p className="text-gray-700">13:30 - 17:00</p>
-                    <p className="text-gray-700">Ngày 17 tháng 10 năm 2025</p>
+                    <p className="font-semibold text-gray-700">13:30 - 17:00</p>
+                    <p className="font-semibold text-gray-700">Ngày 17 tháng 10 năm 2025</p>
                   </div>
                 </div>
               </div>
@@ -219,9 +219,9 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Địa điểm</p>
-                    <p className="text-gray-700">Hội trường tầng 4</p>
-                    <p className="text-gray-700">03 Quang Trung</p>
-                    <p className="text-gray-700">Đà Nẵng</p>
+                    <p className="font-semibold text-gray-700">Hội trường tầng 4</p>
+                    <p className="font-semibold text-gray-700">03 Quang Trung</p>
+                    <p className="font-semibold text-gray-700">Đà Nẵng</p>
                   </div>
                 </div>
               </div>
@@ -234,8 +234,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Liên hệ</p>
-                    <p className="text-gray-700">Nguyễn Sinh Hùng</p>
-                    <p className="text-gray-700">SĐT: 0857000163</p>
+                    <p className="font-semibold text-gray-700">Nguyễn Sinh Hùng</p>
+                    <p className="font-semibold text-gray-700">SĐT: 0857000163</p>
                   </div>
                 </div>
               </div>
@@ -251,7 +251,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Chi tiết thời gian buổi lễ</p>
-                    <p className="text-gray-700">{isTimelineVisible ? 'Ẩn chi tiết' : 'Xem chi tiết'}</p>
+                    <p className="font-semibold text-gray-700">{isTimelineVisible ? 'Ẩn chi tiết' : 'Ấn Xem chi tiết'}</p>
                   </div>
                 </div>
               </div>
