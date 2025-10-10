@@ -110,7 +110,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto font-crimson">
       {/* Main Card */}
       <div className="overflow-hidden bg-white shadow-2xl backdrop-blur-xl rounded-3xl">
         {/* Hero Section */}
@@ -182,12 +182,12 @@ export function InvitationView({ invitation }: InvitationViewProps) {
           {/* Details Section */}
           <div className="items-center justify-center col-span-1 my-auto">
             <div className="mb-8 text-center">
-              <p className="mb-2 text-xl text-gray-600">Thân gửi:</p>
+              <p className="mb-2 text-xl text-gray-900">Thân gửi:</p>
               <h3 className="h-auto mb-2 text-3xl font-bold text-transparent bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-700 bg-clip-text">
                 {invitation.recipient_name}
               </h3>
               {relation && (
-                <p className="max-w-2xl mx-auto text-xl leading-relaxed text-gray-700">
+                <p className="max-w-2xl mx-auto text-xl italic font-medium leading-relaxed text-gray-900">
                   {senderPronoun} rất vui mừng được mời <b>{relation}</b> tham dự buổi lễ tốt nghiệp trang trọng,
                   đánh dấu cột mốc quan trọng trong hành trình học vấn của {senderPronoun.toLowerCase()}.
                 </p>
@@ -204,8 +204,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Thời gian</p>
-                    <p className="font-semibold text-gray-700">13:30 - 17:00</p>
-                    <p className="font-semibold text-gray-700">Ngày 17 tháng 10 năm 2025</p>
+                    <p className="text-lg font-semibold text-gray-900">13:30 - 17:00</p>
+                    <p className="text-lg font-semibold text-gray-900">Ngày 17 tháng 10 năm 2025</p>
                   </div>
                 </div>
               </div>
@@ -219,9 +219,9 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Địa điểm</p>
-                    <p className="font-semibold text-gray-700">Hội trường tầng 4</p>
-                    <p className="font-semibold text-gray-700">03 Quang Trung</p>
-                    <p className="font-semibold text-gray-700">Đà Nẵng</p>
+                    <p className="text-lg font-semibold text-gray-900">Hội trường tầng 4</p>
+                    <p className="text-lg font-semibold text-gray-900">03 Quang Trung</p>
+                    <p className="text-lg font-semibold text-gray-900">Đà Nẵng</p>
                   </div>
                 </div>
               </div>
@@ -234,8 +234,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-pink-800 to-rose-800 bg-clip-text">Liên hệ</p>
-                    <p className="font-semibold text-gray-700">Nguyễn Sinh Hùng</p>
-                    <p className="font-semibold text-gray-700">SĐT: 0857000163</p>
+                    <p className="text-lg font-semibold text-gray-900">Nguyễn Sinh Hùng</p>
+                    <p className="text-lg font-semibold text-gray-900">SĐT: 0857000163</p>
                   </div>
                 </div>
               </div>
@@ -251,7 +251,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Chi tiết thời gian buổi lễ</p>
-                    <p className="font-semibold text-gray-700">{isTimelineVisible ? 'Ẩn chi tiết' : 'Ấn Xem chi tiết'}</p>
+                    <p className="text-lg font-semibold text-gray-900">{isTimelineVisible ? 'Ẩn chi tiết' : 'Ấn Xem chi tiết'}</p>
                   </div>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                                 <h3 className={`mb-2 text-xl font-bold text-gray-800 transition-colors ${color.hover}`}>
                                   {event.title}
                                 </h3>
-                                <p className="leading-relaxed text-gray-600">{event.description}</p>
+                                <p className="leading-relaxed text-gray-900">{event.description}</p>
                               </div>
                             </div>
                           </div>
@@ -345,11 +345,11 @@ export function InvitationView({ invitation }: InvitationViewProps) {
         <div className="relative p-6 m-8 overflow-hidden text-center border-2 shadow-lg rounded-2xl border-amber-200">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-50 via-pink-50 via-rose-50 to-amber-50 opacity-70"></div>
           <div className="relative">
-            <p className="text-xl italic text-gray-700">
+            <p className="text-xl italic text-gray-900">
               Sự hiện diện của Gia đình, Quý Anh, Chị, bạn bè và những người yêu thương sẽ là niềm vinh hạnh của em.<br />
               Xin cảm ơn vì đã dành thời gian quý báu để cùng em lưu giữ những khoảnh khắc đáng nhớ.
             </p>
-            <p className="mt-2 font-bold text-transparent bg-gradient-to-r from-purple-700 via-pink-700 to-amber-700 bg-clip-text">
+            <p className="mt-2 text-xl font-bold text-transparent bg-gradient-to-r from-purple-700 via-pink-700 to-amber-700 bg-clip-text">
               Trân trọng thân mời!
             </p>
           </div>
