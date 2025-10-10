@@ -153,7 +153,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
             <h1 className="mb-3 text-4xl font-bold tracking-tight drop-shadow-lg md:text-6xl">THƯ MỜI</h1>
             <div className="flex items-center gap-2 text-amber-200">
               <Sparkles className="w-5 h-5 animate-pulse" />
-              <p className="text-xl font-normal tracking-wide">Duy Tân University - Lễ Tốt Nghiệp 2025</p>
+              <p className="text-lg font-normal tracking-wide">Duy Tân University - Lễ Tốt Nghiệp 2025</p>
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
           </div>
