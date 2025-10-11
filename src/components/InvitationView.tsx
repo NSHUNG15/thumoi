@@ -25,8 +25,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
   const timelineEvents = [
     { time: '13:30 - 14:00', title: 'Đón tiếp khách mời', description: 'Đăng ký và nhận tài liệu' },
     { time: '14:00 - 14:30', title: 'Nghi thức chào cờ', description: 'Hát quốc ca và chào cờ tổ quốc' },
-    { time: '14:30 - 16:00', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
-    { time: '16:00 - 16:30', title: 'Phát biểu của sinh viên', description: 'Đại diện sinh viên phát biểu cảm nghĩ' },
+    { time: '14:30 - 15:00', title: 'Phát biểu của sinh viên', description: 'Đại diện sinh viên phát biểu cảm nghĩ' },
+    { time: '15:00 - 16:00', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
     { time: '16:30 - 17:00', title: 'Chụp ảnh lưu niệm', description: 'Chụp ảnh tập thể và gia đình' },
   ];
 
@@ -157,7 +157,6 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                 <p className="text-xl font-normal tracking-wide">Duy Tân University</p>
                 <Sparkles className="w-5 h-5 animate-pulse" />
               </div>
-              <p className='flex justify-center'>Lễ Tốt Nghiệp 2025</p>
             </div>
           </div>
         </div>
@@ -204,7 +203,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Thời gian</p>
-                    <p className="text-lg font-semibold text-gray-900">15:30 - 17:00</p>
+                    <p className="text-lg font-semibold text-gray-900">15:00 - 17:00</p>
                     <p className="text-lg font-semibold text-gray-900">Ngày 17 tháng 10 năm 2025</p>
                   </div>
                 </div>
@@ -251,7 +250,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
                   </div>
                   <div>
                     <p className="mb-1 text-xl font-bold text-transparent bg-gradient-to-r from-indigo-800 to-purple-800 bg-clip-text">Chi tiết thời gian buổi lễ</p>
-                    <p className="text-lg font-semibold text-gray-900">{isTimelineVisible ? 'Ẩn chi tiết' : 'Ấn Xem chi tiết'}</p>
+                    <p className="text-lg font-semibold text-gray-900">{isTimelineVisible ? 'Ẩn chi tiết' : 'Chọn xem chi tiết'}</p>
                   </div>
                 </div>
               </div>
