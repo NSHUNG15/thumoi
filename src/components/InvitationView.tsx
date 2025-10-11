@@ -14,7 +14,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
 
   const senderPronoun = (() => {
     const r = (relation || '').toLowerCase();
-    if (/ông|bà/.test(r)) return 'Cháu';
+    if (/ông|bà|bác/.test(r)) return 'Cháu';
     if (/\b(ba|bố|mẹ|gia ?đình|gia đình)\b/.test(r)) return 'Con';
     if (/\b(anh|chị)\b/.test(r)) return 'Em';
     if (/\b(bạn|bạn bè|ban be|bè|be)\b/.test(r)) return 'Tôi';
