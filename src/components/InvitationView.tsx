@@ -23,10 +23,10 @@ export function InvitationView({ invitation }: InvitationViewProps) {
   })();
 
   const timelineEvents = [
-    { time: '13:30 - 14:00', title: 'Đón tiếp khách mời', description: 'Đăng ký và nhận tài liệu' },
+    { time: '13:30 - 14:00', title: 'Đón tiếp khách mời', description: '' },
     { time: '14:00 - 14:30', title: 'Nghi thức chào cờ', description: 'Hát quốc ca và chào cờ tổ quốc' },
     { time: '14:30 - 15:00', title: 'Phát biểu của sinh viên', description: 'Đại diện sinh viên phát biểu cảm nghĩ' },
-    { time: '15:00 - 16:00', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
+    { time: '15:00 - 16:30', title: 'Lễ trao bằng tốt nghiệp', description: 'Trao bằng tốt nghiệp cho sinh viên' },
     { time: '16:30 - 17:00', title: 'Chụp ảnh lưu niệm', description: 'Chụp ảnh tập thể và gia đình' },
   ];
 
