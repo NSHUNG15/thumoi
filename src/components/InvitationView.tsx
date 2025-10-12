@@ -19,6 +19,7 @@ export function InvitationView({ invitation }: InvitationViewProps) {
     if (/\b(anh|chị)\b/.test(r)) return 'Em';
     if (/\b(bạn|bạn bè|ban be|bè|be)\b/.test(r)) return 'Tôi';
     if (r === 'em') return 'Tôi';
+    if (/bé ?mèo|be ?meo/.test(r)) return 'Anhbe';
     return 'Tôi';
   })();
 
