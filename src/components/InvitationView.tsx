@@ -16,7 +16,8 @@ export function InvitationView({ invitation }: InvitationViewProps) {
     const r = (relation || '').toLowerCase();
     if (/ông|bà|bác/.test(r)) return 'Cháu';
     if (/\b(ba|bố|mẹ|gia ?đình|gia đình)\b/.test(r)) return 'Con';
-    if (/\b(anh|chi|chị)\b/.test(r)) return 'Em';
+    if (/\b(anh|chị)\b/.test(r)) return 'Em';
+    if (r.includes('anh') || r.includes('chị')) return 'Em';
     if (/\b(bạn|bạn bè|ban be|bè|be)\b/.test(r)) return 'Tôi';
     if (r === 'em') return 'Tôi';
     if (/bé ?mèo|be ?meo/.test(r)) return 'Anhbe';
